@@ -92,8 +92,7 @@ header,.hero,.story,.culture-strip,.menu,.contact,.map-section,footer{width:100%
   .manage-category-head{flex-direction:column}
   body{padding-bottom:62px}
   .mobile-bar{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;height:62px;border-top:1px solid #d2a448!important;box-shadow:0 -8px 22px #2f120d20!important;background:#fff3ce}
-  .mobile-bar a{height:62px;min-height:62px;padding:0;text-align:center;border-right:1px solid #d2a448}
-  .mobile-bar a:last-child{border-right:0}
+  .mobile-bar a{height:62px;min-height:62px;padding:0;text-align:center;border:0!important}
 }
 
 @media (max-width:380px){
