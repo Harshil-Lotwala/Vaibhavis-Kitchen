@@ -40,12 +40,13 @@ header,.hero,.story,.culture-strip,.menu,.contact,.map-section,footer{width:100%
 @media (max-width:680px){
   .auspicious{height:28px;font-size:11px}
   .notice{padding:8px 12px;gap:4px;text-align:center;flex-direction:column}
-  header{height:68px;padding:0 14px;gap:8px}
-  .wordmark{flex:1;min-width:0}
-  .wordmark span b{font-size:20px;white-space:nowrap}
-  .header-actions{gap:5px;flex-shrink:0}
-  header .admin-button{display:inline-flex!important;font-size:8px;padding:8px 5px;white-space:nowrap}
-  header .pill{padding:10px 9px;font-size:0}
+  header{height:72px;padding:0 12px;gap:8px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center}
+  .wordmark{min-width:0;overflow:hidden}
+  .wordmark span{min-width:0}
+  .wordmark span b{font-size:19px;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .header-actions{display:grid;grid-template-columns:auto auto;align-items:center;gap:6px;flex-shrink:0}
+  header .admin-button{display:inline-grid!important;place-items:center;height:42px;min-height:42px;font-size:7px;padding:0 6px;white-space:nowrap}
+  header .pill{display:grid;place-items:center;height:42px;min-height:42px;padding:0 9px;font-size:0;box-shadow:3px 3px 0 var(--turmeric)}
   header .pill:after{content:'WhatsApp';font-size:8px}
   .hero{padding:46px 18px 58px;background:linear-gradient(#fff7df 0 50%,#8c201d 50% 100%)}
   .hero h1{font-size:clamp(39px,12vw,56px)}
@@ -90,15 +91,17 @@ header,.hero,.story,.culture-strip,.menu,.contact,.map-section,footer{width:100%
   .manage-dishes{grid-template-columns:minmax(0,1fr)!important}
   .manage-category-head{flex-direction:column}
   body{padding-bottom:62px}
-  .mobile-bar{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;height:62px}
+  .mobile-bar{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;height:62px;border-top:1px solid #d2a448!important;box-shadow:0 -8px 22px #2f120d20!important;background:#fff3ce}
+  .mobile-bar a{height:62px;min-height:62px;padding:0;text-align:center;border-right:1px solid #d2a448}
+  .mobile-bar a:last-child{border-right:0}
 }
 
 @media (max-width:380px){
-  header{padding-left:10px;padding-right:10px}
-  .wordmark span b{font-size:18px}
+  header{padding-left:8px;padding-right:8px;gap:4px}
+  .wordmark span b{font-size:16px}
   .wordmark span small{font-size:6px}
-  header .admin-button{font-size:7px;padding:7px 3px}
-  header .pill{padding:9px 7px}
+  header .admin-button{font-size:6px;padding:0 4px}
+  header .pill{padding:0 6px}
   header .pill:after{font-size:7px}
   .hero{padding-left:14px;padding-right:14px}
   .hero h1{font-size:38px}
