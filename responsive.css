@@ -44,10 +44,10 @@ header,.hero,.story,.culture-strip,.menu,.contact,.map-section,footer{width:100%
   .wordmark{min-width:0;overflow:hidden}
   .wordmark span{min-width:0}
   .wordmark span b{font-size:19px;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .header-actions{display:grid;grid-template-columns:auto auto;align-items:center;gap:6px;flex-shrink:0}
-  header .admin-button{display:inline-grid!important;place-items:center;height:42px;min-height:42px;font-size:7px;padding:0 6px;white-space:nowrap}
-  header .pill{display:grid;place-items:center;height:42px;min-height:42px;padding:0 9px;font-size:0;box-shadow:3px 3px 0 var(--turmeric)}
-  header .pill:after{content:'WhatsApp';font-size:8px}
+  .header-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-shrink:0}
+  header .admin-button{display:inline-flex!important;align-items:center;justify-content:center;width:auto;height:auto;min-height:36px;font-size:7px;line-height:1;padding:0 4px;white-space:nowrap}
+  header .pill{display:inline-flex;align-items:center;justify-content:center;width:auto;height:auto;min-height:36px;padding:0 11px;font-size:0;line-height:1;white-space:nowrap;box-shadow:3px 3px 0 var(--turmeric)}
+  header .pill:after{content:'WhatsApp';display:block;font-size:8px;line-height:1}
   .hero{padding:46px 18px 58px;background:linear-gradient(#fff7df 0 50%,#8c201d 50% 100%)}
   .hero h1{font-size:clamp(39px,12vw,56px)}
   .hero p{font-size:14px}
@@ -100,8 +100,8 @@ header,.hero,.story,.culture-strip,.menu,.contact,.map-section,footer{width:100%
   header{padding-left:8px;padding-right:8px;gap:4px}
   .wordmark span b{font-size:16px}
   .wordmark span small{font-size:6px}
-  header .admin-button{font-size:6px;padding:0 4px}
-  header .pill{padding:0 6px}
+  header .admin-button{font-size:6px;padding:0 2px}
+  header .pill{min-height:34px;padding:0 8px}
   header .pill:after{font-size:7px}
   .hero{padding-left:14px;padding-right:14px}
   .hero h1{font-size:38px}
