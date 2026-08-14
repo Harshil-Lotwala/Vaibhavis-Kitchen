@@ -26,6 +26,10 @@ A responsive, culture-led website for a vegetarian multi-cuisine home kitchen in
 - Interface font: DM Sans
 - Both fonts are self-hosted as WOFF2 assets
 - `favicon.svg` uses the same palette, decorative Indian geometry, and a centered “V’s” monogram
+- `favicon-32.png` provides a raster fallback where Safari does not reliably select an SVG favicon
+- `apple-touch-icon.png` provides the 180×180 Apple Home Screen and Web Clip icon recommended by Apple
+- `safari-pinned-tab.svg` provides Safari's single-color pinned-tab mask using the brand maroon
+- Versioned favicon URLs force Safari to request the current icon instead of retaining an older cached result
 - Browser theme color matches the maroon brand color
 - Browser-tab title is `Vaibhavi's Kitchen` without a location suffix
 
@@ -243,6 +247,8 @@ The following variable names must exist in the production context. Their values 
 │   └── fonts/
 │       ├── dm-sans.woff2
 │       └── yatra-one.woff2
+├── apple-touch-icon.png
+├── favicon-32.png
 ├── favicon.svg
 ├── index.html
 ├── netlify.toml
@@ -254,6 +260,7 @@ The following variable names must exist in the production context. Their values 
 ├── package-lock.json
 ├── package.json
 ├── responsive.css
+├── safari-pinned-tab.svg
 ├── script.js
 └── styles.css
 ```
@@ -265,6 +272,9 @@ The following variable names must exist in the production context. Their values 
 - `responsive.css` — phone, tablet, laptop, large-screen, touch, and reduced-motion overrides
 - `script.js` — default menu, search index, filtering, progressive loading, local fallback, admin interface, and API requests
 - `favicon.svg` — scalable brand favicon and “V’s” monogram
+- `favicon-32.png` — 32×32 Safari-compatible browser-tab fallback
+- `apple-touch-icon.png` — 180×180 Apple touch and Web Clip icon
+- `safari-pinned-tab.svg` — monochrome Safari pinned-tab icon
 - `assets/fonts/dm-sans.woff2` — self-hosted interface font
 - `assets/fonts/yatra-one.woff2` — self-hosted display font
 - `netlify/functions/_auth.mjs` — password verification, password storage, signed sessions, and cookie utilities
