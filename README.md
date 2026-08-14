@@ -120,6 +120,8 @@ Authenticated owners can:
 - See items without descriptions identified in the management view
 - Publish menu changes immediately to the shared online menu
 
+Category options are created with explicit values and a selected index so dynamically rebuilt dropdowns behave consistently in Firefox, Safari, Chromium, and mobile browsers. Dish creation uses branded in-panel validation instead of browser-native required-select tooltips: a missing dish name or invalid/missing category produces a clear message and focuses the relevant field.
+
 Menu administration does not require source-code editing, a technical person, or a new website deployment.
 
 Every dish deletion opens a branded confirmation dialog naming the dish and its category. Every category deletion names the category and reports how many contained dishes will also be removed. Nothing is deleted until the owner explicitly chooses Delete; Cancel, Escape, or clicking outside the dialog exits without changing the menu. Keyboard focus moves into the dialog when it opens and returns to the previous control when it closes. The dialog uses a constrained fluid width, viewport-safe scrolling, phone-specific spacing, single-column mobile actions, and touch-sized controls so it works from the smallest supported phone through tablets, desktops, and large screens.
