@@ -35,7 +35,9 @@ export async function changePassword(email, password) {
 
 export function createSession(email) {
   if (!process.env.SESSION_SECRET) throw new Error("SESSION_SECRET is not configured");
-  const payload = encode(JSON.stringify({ email, expires: Date.now() + 8 * 60 * 60 * 1000, nonce: randomBytes(12).toString("hex") }));
+  const normalized = email.trim().toLowerCase();
+  const name = normalized.startsWith("harshil") ? "Harshil" : normalized.includes("vaibhavi") ? "Vaibhavi" : normalized.includes("vipul") ? "Vipul" : "Admin";
+  const payload = encode(JSON.stringify({ email: normalized, name, expires: Date.now() + 30 * 60 * 1000, nonce: randomBytes(12).toString("hex") }));
   return `${payload}.${sign(payload)}`;
 }
 
@@ -47,8 +49,8 @@ export function readSession(request) {
   if (!payload || !signature) return null;
   const expected = sign(payload);
   if (signature.length !== expected.length || !timingSafeEqual(Buffer.from(signature), Buffer.from(expected))) return null;
-  try { const session = JSON.parse(Buffer.from(payload, "base64url").toString()); return session.expires > Date.now() ? session : null; } catch { return null; }
+  try { const session = JSON.parse(Buffer.from(payload, "base64url").toString()),remaining=session.expires-Date.now(); return remaining>0&&remaining<=30*60*1000?session:null; } catch { return null; }
 }
 
-export const sessionCookie = token => `${cookieName}=${token}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=28800`;
+export const sessionCookie = token => `${cookieName}=${token}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=1800`;
 export const clearSessionCookie = `${cookieName}=; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=0`;

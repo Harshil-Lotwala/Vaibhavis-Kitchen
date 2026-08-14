@@ -3,7 +3,7 @@ import { changePassword, clearSessionCookie, createSession, readSession, session
 const json = (body, status = 200, extra = {}) => new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...extra } });
 
 export default async request => {
-  if (request.method === "GET") return json({ authenticated: Boolean(readSession(request)) });
+  if (request.method === "GET") { const session=readSession(request); return json({ authenticated:Boolean(session),name:session?.name||null,expires:session?.expires||null }); }
   if (request.method === "DELETE") return json({ ok: true }, 200, { "set-cookie": clearSessionCookie });
   if (request.method === "PATCH") {
     const session = readSession(request);
@@ -21,7 +21,9 @@ export default async request => {
   try {
     const { email = "", password = "" } = await request.json();
     if (!(await verifyCredentials(email, password))) return json({ error: "Incorrect email or password" }, 401);
-    return json({ authenticated: true }, 200, { "set-cookie": sessionCookie(createSession(email.trim().toLowerCase())) });
+    const token=createSession(email.trim().toLowerCase());
+    const session=JSON.parse(Buffer.from(token.split(".")[0],"base64url").toString());
+    return json({ authenticated:true,name:session.name,expires:session.expires }, 200, { "set-cookie":sessionCookie(token) });
   } catch { return json({ error: "Invalid request" }, 400); }
 };
 

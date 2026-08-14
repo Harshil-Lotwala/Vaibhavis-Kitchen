@@ -101,6 +101,9 @@ The website is designed for small phones through tablets, laptops, desktops, and
 - The admin dashboard never opens automatically on page load, reload, browser-history restoration, or reopened tabs
 - Safari page-cache restoration is explicitly handled through the `pageshow` event
 - A valid signed-in session may allow the dashboard to reopen after pressing Admin Login until sign-out or expiry
+- After login, the top-right Admin Login label is replaced by the signed-in owner's first name with a green status indicator
+- Clicking the displayed owner name reopens the dashboard
+- The interface automatically returns to Admin Login when the server session expires
 
 ## Admin menu management
 
@@ -150,7 +153,9 @@ Every dish deletion opens a branded confirmation dialog naming the dish and its 
 - Both values are configured as secret production environment variables and must never be committed
 - Sessions are signed with HMAC-SHA256
 - Session cookies are `Secure`, `HttpOnly`, `SameSite=Strict`, and restricted to the site path
-- Sessions expire after eight hours
+- Sessions expire after 30 minutes
+- The browser schedules a matching automatic interface logout using the server-provided expiry time
+- Previously issued sessions longer than 30 minutes are rejected by the server
 - Menu write requests require a valid signed session cookie
 - Unauthorized menu writes return HTTP `401`
 - Authentication and menu API responses use `Cache-Control: no-store`
@@ -200,8 +205,8 @@ Requires an authenticated session and stores the complete shared menu in Netlify
 - DM Sans and Yatra One are self-hosted to eliminate Google Fonts runtime requests
 - Both WOFF2 files are preloaded from the page head
 - Font files receive `public, max-age=31536000, immutable` caching
-- CSS receives a one-week public cache
-- JavaScript receives a one-hour cache with revalidation
+- CSS and JavaScript use immediate revalidation so new interface behavior and styling appear as soon as GitHub-triggered deployments finish
+- Versioned CSS and JavaScript URLs invalidate older Safari and browser caches when a release changes interactive behavior
 - The map iframe uses native lazy loading
 - The map iframe declares `allow="fullscreen"` and `allowfullscreen` for cross-browser Google Maps control compatibility
 - No food photography or large raster hero images are downloaded
