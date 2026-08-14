@@ -45,6 +45,7 @@ A responsive, culture-led website for a vegetarian multi-cuisine home kitchen in
 - Embedded Google Map uses coordinates `21.189791, 72.799361`
 - No written location name or street address is displayed
 - Map includes an Open in Maps action
+- The cross-origin Google Maps iframe is explicitly granted fullscreen permission so its built-in controls do not trigger a browser permission-policy failure
 
 ## Ordering contacts
 
@@ -195,6 +196,7 @@ Requires an authenticated session and stores the complete shared menu in Netlify
 - CSS receives a one-week public cache
 - JavaScript receives a one-hour cache with revalidation
 - The map iframe uses native lazy loading
+- The map iframe declares `allow="fullscreen"` and `allowfullscreen` for cross-browser Google Maps control compatibility
 - No food photography or large raster hero images are downloaded
 - Netlify handles CDN delivery and compression
 
