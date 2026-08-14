@@ -27,6 +27,7 @@ A responsive, culture-led website for a vegetarian multi-cuisine home kitchen in
 - Both fonts are self-hosted as WOFF2 assets
 - `favicon.svg` uses the same palette, decorative Indian geometry, and a centered “V’s” monogram
 - Browser theme color matches the maroon brand color
+- Browser-tab title is `Vaibhavi's Kitchen` without a location suffix
 
 ## Customer experience
 
