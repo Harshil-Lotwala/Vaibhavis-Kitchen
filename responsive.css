@@ -38,6 +38,7 @@ header,.hero,.story,.culture-strip,.menu,.contact,.map-section,footer{width:100%
 }
 
 @media (max-width:680px){
+  .confirm-card{width:min(390px,100%);padding:24px 18px}.confirm-actions{grid-template-columns:1fr}.confirm-actions .button{width:100%;min-height:46px}
   .auspicious{height:28px;font-size:11px}
   .notice{padding:8px 12px;gap:4px;text-align:center;flex-direction:column}
   header{height:72px;padding:0 12px;gap:8px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center}
@@ -100,6 +101,7 @@ header,.hero,.story,.culture-strip,.menu,.contact,.map-section,footer{width:100%
 }
 
 @media (max-width:380px){
+  .confirm-dialog{padding:10px}.confirm-card{padding:20px 14px;border-width:3px}.confirm-symbol{width:42px;height:42px}.confirm-card p{font-size:11px}
   header{padding-left:8px;padding-right:8px;gap:4px}
   .wordmark span b{font-size:16px}
   .wordmark span small{font-size:6px}

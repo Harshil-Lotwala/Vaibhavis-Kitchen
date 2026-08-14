@@ -119,6 +119,8 @@ Authenticated owners can:
 
 Menu administration does not require source-code editing, a technical person, or a new website deployment.
 
+Every dish deletion opens a branded confirmation dialog naming the dish and its category. Every category deletion names the category and reports how many contained dishes will also be removed. Nothing is deleted until the owner explicitly chooses Delete; Cancel, Escape, or clicking outside the dialog exits without changing the menu. Keyboard focus moves into the dialog when it opens and returns to the previous control when it closes. The dialog uses a constrained fluid width, viewport-safe scrolling, phone-specific spacing, single-column mobile actions, and touch-sized controls so it works from the smallest supported phone through tablets, desktops, and large screens.
+
 ## Password management
 
 - Every signed-in owner can change only their own password
@@ -270,7 +272,7 @@ The following variable names must exist in the production context. Their values 
 - `index.html` — semantic content, customer interface, admin forms, favicon declaration, font preloads, and external contact/map links
 - `styles.css` — brand palette, typography, cultural artwork, desktop layout, cards, modal styling, and admin components
 - `responsive.css` — phone, tablet, laptop, large-screen, touch, and reduced-motion overrides
-- `script.js` — default menu, search index, filtering, progressive loading, local fallback, admin interface, and API requests
+- `script.js` — default menu, search index, filtering, progressive loading, local fallback, admin interface, responsive deletion confirmation workflow, and API requests
 - `favicon.svg` — scalable brand favicon and “V’s” monogram
 - `favicon-32.png` — 32×32 Safari-compatible browser-tab fallback
 - `apple-touch-icon.png` — 180×180 Apple touch and Web Clip icon
