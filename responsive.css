@@ -32,7 +32,9 @@ header,.hero,.story,.culture-strip,.menu,.contact,.map-section,footer{width:100%
   .hero-culture{width:min(620px,100%);justify-self:center}
   .story,.contact{grid-template-columns:minmax(0,1fr);gap:45px}
   .culture-strip{grid-template-columns:minmax(0,1fr)}
-  .culture-strip article{border-left:0;border-right:0;border-bottom:1px solid #f3c75055}
+  .culture-strip article,.culture-strip article:last-child{border-left:0;border-right:0}
+  .culture-strip article{border-bottom:1px solid #f3c75055}
+  .culture-strip article:last-child{border-bottom:0}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .admin-shell{width:min(94vw,900px)}
 }
@@ -95,8 +97,8 @@ header,.hero,.story,.culture-strip,.menu,.contact,.map-section,footer{width:100%
   .admin-top .button{padding:10px}
   .manage-dishes{grid-template-columns:minmax(0,1fr)!important}
   .manage-category-head{flex-direction:column}
-  body{padding-bottom:62px}
-  .mobile-bar{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;height:62px;border-top:1px solid #d2a448!important;box-shadow:0 -8px 22px #2f120d20!important;background:#fff3ce}
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px))!important}
+  .mobile-bar{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0!important;height:calc(62px + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);border-top:1px solid #d2a448!important;box-shadow:0 -8px 22px #2f120d20!important;background:#fff3ce}
   .mobile-bar a{height:62px;min-height:62px;padding:0;text-align:center;border:0!important}
 }
 
@@ -113,7 +115,26 @@ header,.hero,.story,.culture-strip,.menu,.contact,.map-section,footer{width:100%
   .facts{grid-template-columns:1fr;gap:11px}
   .cuisine-panel{padding-left:16px;padding-right:16px}
   .story,.menu,.contact{padding-left:14px;padding-right:14px}
+  .culture-strip{padding-left:12px;padding-right:12px}
+  .culture-strip article{padding:34px 6px}
+  .culture-strip b{font-size:21px}
+  .culture-strip p{font-size:10px}
   .tabs{margin-left:-14px;margin-right:-14px;padding-left:14px;padding-right:14px}
+}
+
+@media (max-width:340px){
+  header{grid-template-columns:minmax(0,1fr) auto;padding-left:6px;padding-right:6px}
+  .wordmark span b{font-size:15px}
+  header .admin-button{max-width:58px;overflow:hidden;text-overflow:ellipsis;padding:0 3px}
+  header .pill{padding:0 6px}
+  .hero{padding-left:12px;padding-right:12px}
+  .hero h1{font-size:35px}
+  .culture-strip{padding-left:10px;padding-right:10px}
+  .culture-strip article{padding:30px 4px}
+  .culture-strip span{font-size:29px;margin-bottom:14px}
+  .culture-strip b{font-size:20px}
+  .story,.menu,.contact{padding-left:12px;padding-right:12px}
+  .tools{padding-left:9px;padding-right:9px}
 }
 
 @media (hover:none){

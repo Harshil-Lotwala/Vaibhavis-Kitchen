@@ -37,6 +37,10 @@ A responsive, culture-led website for a vegetarian multi-cuisine home kitchen in
 
 - Sticky desktop header with Menu, Our Story, Pickup & Contact, Admin Login, and WhatsApp Order actions
 - Mobile header with compact Admin Login and WhatsApp actions
+- Mobile culture cards use separator-only dividers with no stray vertical borders; the final card has no trailing divider
+- The fixed mobile action bar resets inherited desktop spacing, uses two exact equal-width actions, respects iOS and Android safe-area insets, and remains above browser or system controls
+- Additional compact-width tuning supports legacy 320px and 375px phones without clipped headings, controls, or horizontal overflow
+- Responsive stylesheet revisions use a versioned URL so mobile browsers receive layout fixes immediately instead of retaining stale CSS
 - Mobile bottom navigation contains only Menu and WhatsApp
 - Hero section presents the multi-cuisine, one-family-kitchen message
 - Cultural artwork is created with HTML and CSS rather than food photography
