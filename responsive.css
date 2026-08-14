@@ -87,6 +87,10 @@ header,.hero,.story,.culture-strip,.menu,.contact,.map-section,footer{width:100%
   .admin-login h2,.admin-panel h2{font-size:36px}
   .admin-columns{grid-template-columns:minmax(0,1fr)}
   .admin-top{gap:12px}
+  .admin-top{flex-direction:column;align-items:stretch!important}
+  .admin-top-actions{display:grid;grid-template-columns:1fr 1fr}
+  .password-actions{flex-direction:column;align-items:stretch}
+  .password-actions .button{width:100%}
   .admin-top .button{padding:10px}
   .manage-dishes{grid-template-columns:minmax(0,1fr)!important}
   .manage-category-head{flex-direction:column}

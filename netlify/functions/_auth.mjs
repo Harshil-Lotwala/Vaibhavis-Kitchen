@@ -1,17 +1,36 @@
 import { createHmac, randomBytes, scryptSync, timingSafeEqual } from "node:crypto";
+import { getStore } from "@netlify/blobs";
 
 const cookieName = "vk_admin_session";
 const encode = value => Buffer.from(value).toString("base64url");
 const sign = value => createHmac("sha256", process.env.SESSION_SECRET || "").update(value).digest("base64url");
 
-export function verifyCredentials(email, password) {
+function configuredAdmins() {
   let admins;
-  try { admins = JSON.parse(process.env.ADMIN_CREDENTIALS || "{}"); } catch { return false; }
-  const record = admins[email.trim().toLowerCase()];
+  try { admins = JSON.parse(process.env.ADMIN_CREDENTIALS || "{}"); } catch { admins = {}; }
+  return admins;
+}
+
+async function passwordRecords() {
+  const overrides = await getStore("vaibhavis-kitchen-security").get("passwords", { type: "json" });
+  return { ...configuredAdmins(), ...(overrides || {}) };
+}
+
+export async function verifyCredentials(email, password) {
+  const record = (await passwordRecords())[email.trim().toLowerCase()];
   if (!record?.salt || !record?.hash || !password) return false;
   const actual = scryptSync(password, record.salt, 64);
   const expected = Buffer.from(record.hash, "hex");
   return actual.length === expected.length && timingSafeEqual(actual, expected);
+}
+
+export async function changePassword(email, password) {
+  const normalized = email.trim().toLowerCase();
+  const store = getStore("vaibhavis-kitchen-security");
+  const overrides = (await store.get("passwords", { type: "json" })) || {};
+  const salt = randomBytes(24).toString("hex");
+  overrides[normalized] = { salt, hash: scryptSync(password, salt, 64).toString("hex") };
+  await store.setJSON("passwords", overrides);
 }
 
 export function createSession(email) {
