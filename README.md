@@ -2,7 +2,8 @@
 
 A responsive, culture-led website for a vegetarian multi-cuisine home kitchen. Orders are accepted by phone or WhatsApp for pickup only.
 
-**Live website:** [vaibhavis-kitchen.netlify.app](https://vaibhavis-kitchen.netlify.app)  
+**Live website:** [vaibhavis-kitchen.netlify.app](https://vaibhavis-kitchen.netlify.app)
+
 **Repository:** [Harshil-Lotwala/Vaibhavis-Kitchen](https://github.com/Harshil-Lotwala/Vaibhavis-Kitchen)
 
 ## Highlights
