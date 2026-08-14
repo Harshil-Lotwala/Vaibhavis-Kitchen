@@ -11,7 +11,7 @@ export default async request => {
     try {
       const { currentPassword = "", newPassword = "" } = await request.json();
       if (!(await verifyCredentials(session.email, currentPassword))) return json({ error: "Current password is incorrect" }, 401);
-      if (newPassword.length < 12 || !/[A-Z]/.test(newPassword) || !/[a-z]/.test(newPassword) || !/\d/.test(newPassword) || !/[^A-Za-z0-9]/.test(newPassword)) return json({ error: "Use 12+ characters with uppercase, lowercase, a number and a symbol" }, 400);
+      if (newPassword.length < 8 || !/[A-Z]/.test(newPassword) || !/\d/.test(newPassword) || !/[^A-Za-z0-9]/.test(newPassword)) return json({ error: "Use 8+ characters with at least one uppercase letter, one number and one special character" }, 400);
       if (newPassword === currentPassword) return json({ error: "New password must be different" }, 400);
       await changePassword(session.email, newPassword);
       return json({ ok: true }, 200, { "set-cookie": clearSessionCookie });

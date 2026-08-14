@@ -43,6 +43,8 @@ Approved owners can sign in from the Admin Login button. Menu changes are stored
 
 Admin credentials are intentionally excluded from this repository and documentation.
 
+Admins can change their own password from the dashboard. New passwords require at least eight characters, including one uppercase letter, one number, and one special character.
+
 ## Ordering
 
 The website does not provide checkout, delivery, or online payment. Customers order by WhatsApp or telephone and collect confirmed orders by pickup.
