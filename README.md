@@ -101,7 +101,7 @@ The website is designed for small phones through tablets, laptops, desktops, and
 - The admin dashboard never opens automatically on page load, reload, browser-history restoration, or reopened tabs
 - Safari page-cache restoration is explicitly handled through the `pageshow` event
 - A valid signed-in session may allow the dashboard to reopen after pressing Admin Login until sign-out or expiry
-- After login, the top-right Admin Login label is replaced by the signed-in owner's first name with a green status indicator
+- After login, the top-right Admin Login label is replaced by the signed-in owner's first name with a green status indicator, presented as a sharp-cornered rectangular action matching the site's professional button language
 - Clicking the displayed owner name reopens the dashboard
 - The interface automatically returns to Admin Login when the server session expires
 
